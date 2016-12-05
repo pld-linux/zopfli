@@ -61,7 +61,7 @@ Pliki nagłówkowe biblioteki Zopfli PNG.
 %patch0 -p1
 
 %build
-%{__make} libzopfli libzopflipng zopfli zopflipng \
+%{__make} -j1 libzopfli libzopflipng zopfli zopflipng \
 	CC="%{__cc}" \
 	CXX="%{__cxx}" \
 	CFLAGS="%{rpmcflags} %{rpmcppflags} -W -Wall -Wextra -ansi -pedantic" \
