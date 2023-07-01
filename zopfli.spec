@@ -1,13 +1,13 @@
 Summary:	Compression library to perform very good, but slow, deflate or zlib compression
 Summary(pl.UTF-8):	Biblioteka wykonująca bardzo dobrą, ale wolną kompresję deflate lub zlib
 Name:		zopfli
-Version:	1.0.1
+Version:	1.0.3
 Release:	1
 License:	Apache v2.0
 Group:		Libraries
 #Source0Download: https://github.com/google/zopfli/releases
 Source0:	https://github.com/google/zopfli/archive/%{name}-%{version}.tar.gz
-# Source0-md5:	fc41b0619cf5632460396e0c997352b9
+# Source0-md5:	ebc042f0c13f7e367e72d2b96be1a4c0
 Patch0:		%{name}-link.patch
 URL:		https://github.com/google/zopfli
 BuildRequires:	libstdc++-devel
@@ -71,13 +71,13 @@ Pliki nagłówkowe biblioteki Zopfli PNG.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}}
 
-install libzopfli.so.%{version} libzopflipng.so.1.0.0 $RPM_BUILD_ROOT%{_libdir}
+install libzopfli.so.%{version} libzopflipng.so.%{version} $RPM_BUILD_ROOT%{_libdir}
 install zopfli zopflipng $RPM_BUILD_ROOT%{_bindir}
 cp -p src/zopfli/zopfli.h src/zopflipng/zopflipng_lib.h $RPM_BUILD_ROOT%{_includedir}
 
 /sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 ln -sf libzopfli.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libzopfli.so
-ln -sf libzopflipng.so.1.0.0 $RPM_BUILD_ROOT%{_libdir}/libzopflipng.so
+ln -sf libzopflipng.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libzopflipng.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
