@@ -58,7 +58,7 @@ Pliki nagłówkowe biblioteki Zopfli PNG.
 
 %prep
 %setup -q -n %{name}-%{name}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} -j1 libzopfli libzopflipng zopfli zopflipng \
